@@ -10,9 +10,6 @@ from flask_gravatar import Gravatar
 from functools import wraps
 from datetime import date
 import os
-# from dotenv import load_dotenv
-#
-# load_dotenv()
 
 today = date.today()
 year = today.year
@@ -32,13 +29,8 @@ gravatar = Gravatar(app,
                     base_url=None)
 
 ##CONNECT TO DB
-if os.environ.get("LOCAL") == "True":
-    app.config["SQLALCHEMY_DATABASE_URI"] = 'sqlite:///blog.db'
-else:
-    app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("DATABASE_URL")
-
-# app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///blog.db'
-# app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DATABASE_URL")
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
 db.init_app(app)
