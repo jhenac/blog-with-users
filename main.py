@@ -10,9 +10,9 @@ from flask_gravatar import Gravatar
 from functools import wraps
 from datetime import date
 import os
-from dotenv import load_dotenv
-
-load_dotenv()
+# from dotenv import load_dotenv
+#
+# load_dotenv()
 
 today = date.today()
 year = today.year
