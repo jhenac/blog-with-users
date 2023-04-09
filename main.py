@@ -17,7 +17,7 @@ import os
 today = date.today()
 year = today.year
 
-db = SQLAlchemy()
+
 app = Flask(__name__)
 app.config['SECRET_KEY'] = os.environ.get("SECRET_KEY")
 ckeditor = CKEditor(app)
@@ -39,7 +39,7 @@ else:
 
 # app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///blog.db'
 # app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-# db = SQLAlchemy(app)
+db = SQLAlchemy(app)
 
 db.init_app(app)
 
